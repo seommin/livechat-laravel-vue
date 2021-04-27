@@ -3,4 +3,5 @@
 .env
 nginx.conf
 /proxy/letsencrypt/*
+/mysql/*
 .history
