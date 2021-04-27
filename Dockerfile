@@ -18,7 +18,7 @@ RUN docker-php-ext-install opcache
 RUN docker-php-ext-install intl
 RUN docker-php-ext-install bcmath
 RUN docker-php-ext-install zip
-RUN docker-php-ext-install pdo pdo_mysql
+RUN docker-php-ext-install pdo pdo_mysql mysqli && docker-php-ext-enable mysqli
 
 # PHP Config
 RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini && \
@@ -45,6 +45,8 @@ RUN composer global require laravel/ui
 RUN php artisan ui vue
 RUN composer require laravel-frontend-presets/tailwindcss --dev
 RUN php artisan ui tailwindcss --auth
+
+RUN npm install && npm run dev
 
 # permission
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache/
