@@ -55,3 +55,15 @@
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
 }
 ```
+
+-   SQLSTATE[HY000] [2002] Connection refused Error
+    -   env 파일 수정
+
+```
+DB_CONNECTION=mysql
+DB_HOST=mysql (docker container name)
+DB_PORT=3306
+DB_DATABASE=livechat
+DB_USERNAME=root
+DB_PASSWORD=secret
+```
