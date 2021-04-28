@@ -67,3 +67,11 @@ DB_DATABASE=livechat
 DB_USERNAME=root
 DB_PASSWORD=secret
 ```
+
+-   Target class [UserController] does not exist.
+    -   routes/api.php 수정 (Full Namespace)
+
+```
+Route::get('/users', 'UserController@index');
+→ Route::get('/users', 'App\Http\Controllers\UserController@index');
+```
