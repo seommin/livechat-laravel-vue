@@ -42,11 +42,11 @@ WORKDIR /var/www/html
 ENV COMPOSER_ALLOW_SUPERUSER 1
 RUN composer global require laravel/installer
 RUN composer global require laravel/ui
-RUN php artisan ui vue
 RUN composer require laravel-frontend-presets/tailwindcss --dev
+RUN php artisan ui vue
 RUN php artisan ui tailwindcss --auth
 
-# RUN npm install && npm run dev
+RUN npm install && npm run dev
 
 # permission
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache/
